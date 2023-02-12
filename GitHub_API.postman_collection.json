@@ -1,0 +1,483 @@
+{
+	"info": {
+		"_postman_id": "e035a7be-1889-4064-aef2-f7f8231a387c",
+		"name": "GitHub_API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25582964"
+	},
+	"item": [
+		{
+			"name": "Issues",
+			"item": [
+				{
+					"name": "GET",
+					"item": [
+						{
+							"name": "https://github.com/BoyanValov/Postman/issues",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Check status code is 200\", function() {\r",
+											"    pm.response.to.have.status(200);\r",
+											"\r",
+											"})\r",
+											"pm.test(\"Check test status is OK\", function(){\r",
+											"    pm.expect(pm.response.status).equals(\"OK\");\r",
+											"})\r",
+											"pm.test(\"HTTP returns as array of objects with ids:\", function(){\r",
+											"    const json = pm.response.json();\r",
+											"    pm.expect(Array.isArray(json)).equals(true);\r",
+											"    for (let item of json){\r",
+											"        pm.expect(typeof(item)).equals(\"object\");\r",
+											"        pm.expect(typeof(item.id)).equals(\"number\");\r",
+											"\r",
+											"    }\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "username",
+											"value": "BoyanValov",
+											"type": "string"
+										},
+										{
+											"key": "password",
+											"value": "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",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://api.github.com/repos/BoyanValov/Postman/issues",
+									"protocol": "https",
+									"host": [
+										"api",
+										"github",
+										"com"
+									],
+									"path": [
+										"repos",
+										"BoyanValov",
+										"Postman",
+										"issues"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "https://github.com/BoyanValov/Postman/issues/2",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Issue number is correct\", function(){\r",
+											"    var jsondata = pm.response.json();\r",
+											"    pm.expect(jsondata.number).to.eql(2);\r",
+											"});\r",
+											"pm.test(\"Issue is open\", function(){\r",
+											"    var jsondata = pm.response.json();\r",
+											"    pm.expect(jsondata.state).to.eql(\"open\");\r",
+											"});\r",
+											"pm.test(\"Issue is is created by correct user\", function(){\r",
+											"    var jsondata = pm.response.json();\r",
+											"    pm.expect(jsondata.user.login).to.eql(\"BoyanValov\");\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://api.github.com/repos/BoyanValov/Postman/issues/2",
+									"protocol": "https",
+									"host": [
+										"api",
+										"github",
+										"com"
+									],
+									"path": [
+										"repos",
+										"BoyanValov",
+										"Postman",
+										"issues",
+										"2"
+									]
+								},
+								"description": "Returns the specified issue - 2"
+							},
+							"response": []
+						},
+						{
+							"name": "https://github.com/BoyanValov/Postman/issues/2#issuecomment-1427076697",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://api.github.com/repos/BoyanValov/Postman/issues/2#issuecomment-1427076697",
+									"protocol": "https",
+									"host": [
+										"api",
+										"github",
+										"com"
+									],
+									"path": [
+										"repos",
+										"BoyanValov",
+										"Postman",
+										"issues",
+										"2"
+									],
+									"hash": "issuecomment-1427076697"
+								},
+								"description": "Returns the specified comment"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "POST",
+					"item": [
+						{
+							"name": "Create Issue",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Check issue number\", function(){\r",
+											"    let body = pm.response.json();\r",
+											"\r",
+											"pm.expect(body.number, \"Number property\").greaterThan(0);\r",
+											"pm.expect(body.title, \"Title property\").equal(\"issue from Boyan's POSTMAN\");\r",
+											"\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "username",
+											"value": "BoyanValov",
+											"type": "string"
+										},
+										{
+											"key": "password",
+											"value": "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",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\": \"issue from Boyan's POSTMAN\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://api.github.com/repos/BoyanValov/Postman/issues",
+									"protocol": "https",
+									"host": [
+										"api",
+										"github",
+										"com"
+									],
+									"path": [
+										"repos",
+										"BoyanValov",
+										"Postman",
+										"issues"
+									]
+								},
+								"description": "Returns the specified comment"
+							},
+							"response": []
+						},
+						{
+							"name": "Create Issue with a labels",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "username",
+											"value": "BoyanValov",
+											"type": "string"
+										},
+										{
+											"key": "password",
+											"value": "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",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\": \"Issue with a label\",\r\n    \"labels\" : [\"bug\", \"moi etiket\"]\r\n}"
+								},
+								"url": {
+									"raw": "https://api.github.com/repos/BoyanValov/Postman/issues",
+									"protocol": "https",
+									"host": [
+										"api",
+										"github",
+										"com"
+									],
+									"path": [
+										"repos",
+										"BoyanValov",
+										"Postman",
+										"issues"
+									]
+								},
+								"description": "Returns the specified comment"
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Repos",
+			"item": [
+				{
+					"name": "Get",
+					"item": [
+						{
+							"name": "Get all repos",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "username",
+											"value": "BoyanValov",
+											"type": "string"
+										},
+										{
+											"key": "password",
+											"value": "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",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://api.github.com/users/BoyanValov/repos",
+									"protocol": "https",
+									"host": [
+										"api",
+										"github",
+										"com"
+									],
+									"path": [
+										"users",
+										"BoyanValov",
+										"repos"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get repo Postman",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Repository exist\", function () {\r",
+											"    var jsondata = pm.response.json();\r",
+											"    pm.expect(jsondata.name).to.eql(\"Postman\");\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "username",
+											"value": "BoyanValov",
+											"type": "string"
+										},
+										{
+											"key": "password",
+											"value": "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",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://api.github.com/repos/BoyanValov/Postman",
+									"protocol": "https",
+									"host": [
+										"api",
+										"github",
+										"com"
+									],
+									"path": [
+										"repos",
+										"BoyanValov",
+										"Postman"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Single issue labels",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"pm.test(\"Response time is less than 250ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(250);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "username",
+											"value": "BoyanValov",
+											"type": "string"
+										},
+										{
+											"key": "password",
+											"value": "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",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://api.github.com/repos/BoyanValov/Postman/issues/3/labels",
+									"protocol": "https",
+									"host": [
+										"api",
+										"github",
+										"com"
+									],
+									"path": [
+										"repos",
+										"BoyanValov",
+										"Postman",
+										"issues",
+										"3",
+										"labels"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}
