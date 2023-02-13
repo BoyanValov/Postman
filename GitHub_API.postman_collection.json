@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "e035a7be-1889-4064-aef2-f7f8231a387c",
+		"_postman_id": "026405d9-2640-4c6a-abeb-6c156c4291ae",
 		"name": "GitHub_API",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "25582964"
@@ -48,13 +48,13 @@
 									"type": "basic",
 									"basic": [
 										{
-											"key": "username",
-											"value": "BoyanValov",
+											"key": "password",
+											"value": "{{AccessToken}}",
 											"type": "string"
 										},
 										{
-											"key": "password",
-											"value": "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",
+											"key": "username",
+											"value": "{{user}}",
 											"type": "string"
 										}
 									]
@@ -71,7 +71,7 @@
 									}
 								},
 								"url": {
-									"raw": "https://api.github.com/repos/BoyanValov/Postman/issues",
+									"raw": "https://api.github.com/repos/BoyanValov/{{repoName}}/issues",
 									"protocol": "https",
 									"host": [
 										"api",
@@ -81,7 +81,7 @@
 									"path": [
 										"repos",
 										"BoyanValov",
-										"Postman",
+										"{{repoName}}",
 										"issues"
 									]
 								}
@@ -113,10 +113,25 @@
 								}
 							],
 							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "{{user}}",
+											"type": "string"
+										}
+									]
+								},
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "https://api.github.com/repos/BoyanValov/Postman/issues/2",
+									"raw": "https://api.github.com/repos/BoyanValov/{{repoName}}/issues/2",
 									"protocol": "https",
 									"host": [
 										"api",
@@ -126,7 +141,7 @@
 									"path": [
 										"repos",
 										"BoyanValov",
-										"Postman",
+										"{{repoName}}",
 										"issues",
 										"2"
 									]
@@ -138,10 +153,25 @@
 						{
 							"name": "https://github.com/BoyanValov/Postman/issues/2#issuecomment-1427076697",
 							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "{{user}}",
+											"type": "string"
+										}
+									]
+								},
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "https://api.github.com/repos/BoyanValov/Postman/issues/2#issuecomment-1427076697",
+									"raw": "https://api.github.com/repos/BoyanValov/{{repoName}}/issues/2#issuecomment-1427076697",
 									"protocol": "https",
 									"host": [
 										"api",
@@ -151,7 +181,7 @@
 									"path": [
 										"repos",
 										"BoyanValov",
-										"Postman",
+										"{{repoName}}",
 										"issues",
 										"2"
 									],
@@ -190,13 +220,13 @@
 									"type": "basic",
 									"basic": [
 										{
-											"key": "username",
-											"value": "BoyanValov",
+											"key": "password",
+											"value": "{{AccessToken}}",
 											"type": "string"
 										},
 										{
-											"key": "password",
-											"value": "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",
+											"key": "username",
+											"value": "{{user}}",
 											"type": "string"
 										}
 									]
@@ -213,7 +243,7 @@
 									}
 								},
 								"url": {
-									"raw": "https://api.github.com/repos/BoyanValov/Postman/issues",
+									"raw": "https://api.github.com/repos/BoyanValov/{{repoName}}/issues",
 									"protocol": "https",
 									"host": [
 										"api",
@@ -223,7 +253,7 @@
 									"path": [
 										"repos",
 										"BoyanValov",
-										"Postman",
+										"{{repoName}}",
 										"issues"
 									]
 								},
@@ -249,13 +279,13 @@
 									"type": "basic",
 									"basic": [
 										{
-											"key": "username",
-											"value": "BoyanValov",
+											"key": "password",
+											"value": "{{AccessToken}}",
 											"type": "string"
 										},
 										{
-											"key": "password",
-											"value": "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",
+											"key": "username",
+											"value": "{{user}}",
 											"type": "string"
 										}
 									]
@@ -267,7 +297,7 @@
 									"raw": "{\r\n    \"title\": \"Issue with a label\",\r\n    \"labels\" : [\"bug\", \"moi etiket\"]\r\n}"
 								},
 								"url": {
-									"raw": "https://api.github.com/repos/BoyanValov/Postman/issues",
+									"raw": "https://api.github.com/repos/BoyanValov/{{repoName}}/issues",
 									"protocol": "https",
 									"host": [
 										"api",
@@ -277,7 +307,7 @@
 									"path": [
 										"repos",
 										"BoyanValov",
-										"Postman",
+										"{{repoName}}",
 										"issues"
 									]
 								},
@@ -305,13 +335,13 @@
 									"type": "basic",
 									"basic": [
 										{
-											"key": "username",
-											"value": "BoyanValov",
+											"key": "password",
+											"value": "{{AccessToken}}",
 											"type": "string"
 										},
 										{
-											"key": "password",
-											"value": "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",
+											"key": "username",
+											"value": "{{user}}",
 											"type": "string"
 										}
 									]
@@ -368,13 +398,13 @@
 									"type": "basic",
 									"basic": [
 										{
-											"key": "username",
-											"value": "BoyanValov",
+											"key": "password",
+											"value": "{{AccessToken}}",
 											"type": "string"
 										},
 										{
-											"key": "password",
-											"value": "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",
+											"key": "username",
+											"value": "{{user}}",
 											"type": "string"
 										}
 									]
@@ -391,7 +421,7 @@
 									}
 								},
 								"url": {
-									"raw": "https://api.github.com/repos/BoyanValov/Postman",
+									"raw": "https://api.github.com/repos/BoyanValov/{{repoName}}",
 									"protocol": "https",
 									"host": [
 										"api",
@@ -401,7 +431,7 @@
 									"path": [
 										"repos",
 										"BoyanValov",
-										"Postman"
+										"{{repoName}}"
 									]
 								}
 							},
@@ -433,13 +463,13 @@
 									"type": "basic",
 									"basic": [
 										{
-											"key": "username",
-											"value": "BoyanValov",
+											"key": "password",
+											"value": "{{AccessToken}}",
 											"type": "string"
 										},
 										{
-											"key": "password",
-											"value": "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",
+											"key": "username",
+											"value": "{{user}}",
 											"type": "string"
 										}
 									]
@@ -456,7 +486,7 @@
 									}
 								},
 								"url": {
-									"raw": "https://api.github.com/repos/BoyanValov/Postman/issues/3/labels",
+									"raw": "https://api.github.com/repos/BoyanValov/{{repoName}}/issues/3/labels",
 									"protocol": "https",
 									"host": [
 										"api",
@@ -466,10 +496,165 @@
 									"path": [
 										"repos",
 										"BoyanValov",
-										"Postman",
+										"{{repoName}}",
 										"issues",
 										"3",
 										"labels"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Patch",
+					"item": [
+						{
+							"name": "Edit Existing Issue",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "{{user}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"title\": \"Edited bug (new title)\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://api.github.com/repos/BoyanValov/{{repoName}}/issues/3",
+									"protocol": "https",
+									"host": [
+										"api",
+										"github",
+										"com"
+									],
+									"path": [
+										"repos",
+										"BoyanValov",
+										"{{repoName}}",
+										"issues",
+										"3"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Close Existing Issue",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "{{user}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"state\": \"closed\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://api.github.com/repos/BoyanValov/{{repoName}}/issues/1",
+									"protocol": "https",
+									"host": [
+										"api",
+										"github",
+										"com"
+									],
+									"path": [
+										"repos",
+										"BoyanValov",
+										"{{repoName}}",
+										"issues",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "POST",
+					"item": [
+						{
+							"name": "New Request",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "{{AccessToken}}",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "{{user}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"body\": \"This is a comment\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://api.github.com/repos/BoyanValov/{{repoName}}/issues/1/comments",
+									"protocol": "https",
+									"host": [
+										"api",
+										"github",
+										"com"
+									],
+									"path": [
+										"repos",
+										"BoyanValov",
+										"{{repoName}}",
+										"issues",
+										"1",
+										"comments"
 									]
 								}
 							},
